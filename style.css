@@ -1,182 +1,234 @@
+/* Root variables for consistent styling and easy maintenance */
+:root {
+  --font-size: 1.2rem;
+  --text-color: rgba(255, 255, 255, 1);
+  --background-color: rgba(125, 160, 8, 0.6); 
+  --hover-background-color: rgba(69, 160, 73, 0.7);
+  --nav-button-border-radius: 1vw;
+}
+
+/* Basic styling for html and body */
 html, body {
     height: 100%; 
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-x: hidden;
 }
 
+/* Global body styles */
 body {
-    font-family: Arial, sans-serif;
-    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    color: var(--text-color);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: url('photo2.jpg');
-    background-size: cover; /* Cover the entire area */
+    background-image: url('photo4.jpg');
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-.flex-container {
+/* Header styles using Flexbox */
+.header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 100vh;
+    align-items: center;
+    gap: 2vw;
+    padding: 2vw;
+    background-image: url('photo4.jpg');
+    border-radius: 1rem;
+    width: 92%;
+    margin: 2vw auto;
+    padding-left: 2vw;
+    padding-right: 2vw;
 }
 
-.main-container {
-    display: flex; 
-    flex-grow: 1; 
-    width: 75%; /* Responsive width */
-    margin: 2vw auto; /* Responsive margin */
+/* Styling for the main title in the header */
+.header h1 {
+    margin-left: 0;
+    align-self: center;
+    
 }
 
-.header {
-    display: grid;
-    grid-template-columns: 1fr 2fr; /* Adjusts for medium and larger screens */
-    grid-template-areas: "logo nav";
-    align-items: start;
-    padding: 1vw; /* Responsive padding */
-    background-image: url('photo2.jpg');
-    background-position: center center;
-    color: white;
-    transition: grid-template-columns 0.3s ease; /* Smooth transition for grid changes */
-}
-
-.header .logo {
-    grid-area: logo;
-}
-
-.header .navigation {
-    grid-area: nav;
-    padding: 1vw 1vh; /* Responsive padding */
-    display: flex; /* Ensure navigation is flex for alignment */
-    align-items: center; /* Vertically align navigation items */
-    justify-content: center; /* Center navigation items */
-}
-
-/* ... rest of your CSS for navigation and other elements ... */
-
-/* Responsive layout for medium screens (481px to 768px) */
-@media screen and (min-width: 481px) and (max-width: 768px) {
-    .header {
-        grid-template-columns: 1fr 3fr; /* Adjust grid columns for medium screens */
-    }
-
-    /* Adjustments for navigation buttons or other header elements if needed */
-}
-
-/* Responsive layout for smaller screens (up to 480px) */
-@media screen and (max-width: 480px) {
-    .header {
-        grid-template-columns: 1fr; /* Stack logo and navigation vertically */
-        grid-template-areas:
-            "logo"
-            "nav";
-    }
-
-    .header .navigation {
-        justify-content: space-around; /* Adjust navigation alignment for smaller screens */
-    }
-
-    /* Additional adjustments for navigation buttons and other header elements */
-}
-
-
-.navigation .nav-button {
-    text-decoration: none;
-    color: #fff;
-    background-color: #4CAF50;
-    padding: 1vw 1vh; /* Responsive padding */
-    border: none;
-    border-radius: 0.5vw; /* Responsive border-radius */
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.navigation .nav-button:hover {
-    background-color: #45a049;
-    color: #ebebeb;
-}
-
+/* Styling for the navigation bar */
 .header .navigation ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+    list-style: none;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    gap:1rem;
+    padding: 0.75rem 1rem;
 }
 
-.header .navigation li {
-    margin: 0 1vw; /* Responsive margin */
-}
 
-.header .navigation a {
-    color: white;
+/* Styling for each navigation button */
+.navigation a.nav-button {
     text-decoration: none;
+    color: #ffffff;
+    padding: 1.5vw 2vw; 
+    background-color: var(--background-color);
+    border-radius: var(--nav-button-border-radius);
+    display: block; 
 }
 
-.header .navigation a:hover {
-    text-decoration: underline;
+/* Hover effect for navigation buttons */
+.header .navigation a.nav-button:hover {
+    background-color: var(--hover-background-color);
 }
 
+/* Main content area using CSS Grid */
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2vw;
+    padding: 2vw;
+    font-size: 1.2vw 1.2vh;
+    position: relative;
+    
+}
+
+/* Styling for each content column */
+.column {
+    background-color: var(--background-color);
+    padding: 2vw;
+    text-align: left;
+    border-radius: 1rem;
+    padding-left: 2vw; 
+    padding-right: 2vw;
+    position: relative;
+    text-shadow: 5px 5px 9px rgba(100, 99, 120, 0.9);
+}
+
+.photo-container {
+    position: relative;
+    width: 100%;
+}
+
+/* Styling for images within content columns */
+.nature-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 1rem;
+    object-fit: cover;
+    
+}
+
+.text-overlay {
+  background-color: var(--background-color);
+  border-radius: 1rem;
+}
+
+.photo-container h2.text-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: var(--text-color);
+    padding: 10px; 
+    margin: 0; 
+    text-align: left; 
+    display: inline;
+   
+}
+
+/* Styling for the author section */
+.author {
+    display: flex; 
+    flex-direction:column;
+    align-items: center; 
+    text-align: center;
+    width: 92%;
+    gap: 2vw;
+    padding: 2vw;
+    background-color: var(--background-color);
+    margin: 2vw auto; 
+    border-radius: 1rem; 
+}
+
+/* Styling for the author's image */
+.author-img {
+    border-radius: 50%; 
+    width: 5rem; 
+    height: 5rem; 
+    object-fit: cover; 
+}
+
+/* Styling for the author's text */
+.author p {
+    margin: 0; 
+}
+
+/* Styling for bold text */
+.bold-text {
+    font-weight: bold;
+}
+
+/* Hover effect for the author section */
+.author:hover {
+  background-color: var(--hover-background-color);
+}
+
+
+/* Footer styles */
 footer {
     text-align: center;
-    padding: 2vh; /* Responsive padding */
-    background-image: url('photo2.jpg');
-    background-position: center center;
-    color: white;
+    gap: 2vw;
+    padding: 2vw;
+    background-image: url('photo4.jpg');
+    color: var(--text-color);
+    border-radius: 1rem;
+    width: 92%;
+    margin: 2vw auto;
 }
 
-.container {
-    display: flex;
-    flex-grow: 1;
-    width: 100%; /* Ensure container takes full width */
-    gap: 2vw; /* Responsive gap */
+/* Media queries for larger screens */
+@media screen and (min-width: 768px) {
+    
+  /* Adjust the main container for two-column layout */
+  .main-container {
+       display: grid;
+       grid-template-columns: 1fr 1fr;
+       gap: 2vw;
+       padding: 1.5vw 2vw;
+       font-size: var(--font-size);
 }
 
-.column {
-    flex: 1; 
-    padding: 2vh; /* Responsive padding */
-    box-sizing: border-box; 
-}
-
-#column1 {
-    text-align: left;
-    border-right: 0.1vw solid #4893f4; /* Responsive border */
-    background-color: rgba(54, 131, 247, 0.7); 
-}
-
-#column2 {
-    background-color: rgba(54, 131, 247, 0.7); 
-    text-align: left;
-}
-
-/* Responsive layout for smaller screens */
-@media screen and (max-width: 768px) {
-    .main-container, .container {
-        flex-direction: column;
-        margin-top: 2vh; /* Responsive margin */
-    }
-    .column {
-        flex-basis: 100%; /* Full width on smaller screens */
-    }
-
-    .container {
-        gap: 2vh; /* Responsive gap */
-    }
-
+  /* Adjust the header for larger screens */
     .header {
-        text-align: center;
-        padding-bottom: 2vw; /* Responsive padding */
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between; 
+      align-items: center;
+  }
+
+   .header .navigation a.nav-button {
+    text-decoration: none;
+    color: #fff;
+    background-color: var(--background-color);
+    padding: 1.5vw 2vw; 
+    border-radius: 0.5vw;
+    display: inline-block; 
+    font-size: 1.5vw;
+}
+
+  /* Styling for navigation items within the header for larger screens */
+    .header .navigation ul {
+      display: flex;
+      flex-direction: row;
+      padding: 0; 
+      margin: 0; 
+  }
+
+
+  /* Adjustments to the author section for larger screens */
+  .author {
+        display: flex;
+        flex-direction: row; 
+        align-items: left; 
+        text-align: center; 
+        justify-content: center;
+        gap: 1.5vw;
     }
 
-    .header .logo, .header .navigation, .main-container, footer {
-        display: block;
-        width: 100%; /* Full width */
-        margin: auto;
-    }
-
-    footer {
-        margin-top: 2vh; /* Responsive margin */
-    }
 }

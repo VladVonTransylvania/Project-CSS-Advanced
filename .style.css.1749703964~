@@ -1,0 +1,236 @@
+/* Root variables for consistent styling and easy maintenance */
+:root {
+  --font-size: 1.2rem;
+  --text-color: rgba(255, 255, 255, 1);
+  --background-color: rgba(125, 160, 8, 0.7); 
+  --hover-background-color: rgba(69, 160, 73, 0.7);
+  --nav-button-border-radius: 0.5vw;
+}
+
+/* Basic styling for html and body */
+html, body {
+    height: 100%; 
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Global body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url('photo4.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Header styles using Flexbox */
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2vw;
+    padding: 2vw;
+    background-image: url('photo4.jpg');
+    border-radius: 1rem;
+    width: 92%;
+    margin: 2vw auto;
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+/* Styling for the main title in the header */
+.header h1 {
+    margin-left: 0;
+    align-self: center;
+    
+}
+
+/* Styling for the navigation bar */
+.header .navigation ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:1rem;
+    padding: 0 1vw;
+    margin: 0;
+}
+
+.header .navigation li {
+        margin: 0 0; 
+    }
+
+/* Styling for each navigation button */
+.navigation .nav-button {
+    text-decoration: none;
+    color: v;
+    margin-bottom: 1rem;
+    padding-top: 2rem; 
+    padding-bottom: 2rem;
+    background-color: var(--background-color);
+    border-radius: var(--nav-button-border-radius);
+    padding: .5vw .5vh;
+  
+}
+
+/* Hover effect for navigation buttons */
+.navigation .nav-button:hover {
+    background-color: var(--hover-background-color);
+}
+
+/* Main content area using CSS Grid */
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2vw;
+    padding: 2vw;
+    font-size: 1.2vw 1.2vh;
+    position: relative;
+    
+}
+
+/* Styling for each content column */
+.column {
+    background-color: var(--background-color);
+    padding: 2vw;
+    text-align: left;
+    border-radius: 1rem;
+    padding-left: 2vw; 
+    padding-right: 2vw;
+    position: relative;
+    text-shadow: 5px 5px 9px rgba(100, 99, 120, 0.9);
+}
+
+.photo-container {
+    position: relative;
+}
+
+/* Styling for images within content columns */
+.nature-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 1rem;
+}
+
+.h2 {
+  text-shadow: 5px 5px 9px rgba(100, 99, 120, 0.9);
+  
+}
+
+.photo-container h2.text-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: var(--text-color);
+    padding: 10px; /* Padding around text */
+    margin: 0; /* Remove default margins */
+    text-align: left; /* Center-align text */
+}
+
+/* Styling for the author section */
+.author {
+    display: flex; 
+    flex-direction:column;
+    align-items: center; 
+    text-align: center;
+    width: 92%;
+    gap: 2vw;
+    padding: 2vw;
+    background-color: var(--background-color);
+    margin: 2vw auto; 
+    border-radius: 1rem; 
+}
+
+/* Styling for the author's image */
+.author-img {
+    border-radius: 50%; 
+    width: 5rem; 
+    height: 5rem; 
+    object-fit: cover; 
+}
+
+/* Styling for the author's text */
+.author p {
+    margin: 0; 
+}
+
+/* Styling for bold text */
+.bold-text {
+    font-weight: bold;
+}
+
+/* Hover effect for the author section */
+.author:hover {
+  background-color: var(--hover-background-color);
+}
+
+
+/* Footer styles */
+footer {
+    text-align: center;
+    gap: 2vw;
+    padding: 2vw;
+    background-image: url('photo4.jpg');
+    color: var(--text-color);
+    border-radius: 1rem;
+    width: 92%;
+    margin: 2vw auto;
+}
+
+/* Media queries for larger screens */
+@media screen and (min-width: 768px) {
+    
+  /* Adjust the main container for two-column layout */
+  .main-container {
+       display: grid;
+       grid-template-columns: 1fr 1fr;
+       gap: 2vw;
+       padding: 1.5vw 2vw;
+       font-size: var(--font-size);
+}
+
+  /* Adjust the header for larger screens */
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; 
+        align-items: center;
+        padding: 2vh 2vw; 
+        
+    }
+
+  .navigation .nav-button {
+    text-decoration: none;
+    color: #fff;
+    background-color: var(--background-color);
+    padding: .5vw .5vh; /* Adjust padding as needed */
+    border-radius: var(--nav-button-border-radius);
+    margin: 0; /* Remove any default margin */
+}
+
+  /* Styling for navigation items within the header for larger screens */
+    .header .navigation ul {
+        flex-direction: row;
+        gap: 1.5vw; 
+  }
+  
+
+  /* Adjustments to the author section for larger screens */
+  .author {
+        display: flex;
+        flex-direction: row; 
+        align-items: left; 
+        text-align: center; 
+        justify-content: center;
+        gap: 1.5vw;
+    }
+
+}
